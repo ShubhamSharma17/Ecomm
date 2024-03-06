@@ -1,4 +1,4 @@
-import 'package:e_comm/screens/auth/splash_screen.dart';
+import 'package:e_comm/screens/auth/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const SignInScreen(),
     );
   }
 }
