@@ -1,26 +1,24 @@
 import 'package:e_comm/screens/auth/welcome_screen.dart';
-import 'package:e_comm/utils/app_constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class UserMainScreen extends StatefulWidget {
-  const UserMainScreen({super.key});
+class AdminMainScreen extends StatefulWidget {
+  const AdminMainScreen({super.key});
 
   @override
-  State<UserMainScreen> createState() => _UserMainScreenState();
+  State<AdminMainScreen> createState() => _AdminMainScreenState();
 }
 
-class _UserMainScreenState extends State<UserMainScreen> {
+class _AdminMainScreenState extends State<AdminMainScreen> {
   GoogleSignIn googleSignIn = GoogleSignIn();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppConstant.appMainName),
-        backgroundColor: AppConstant.appStatusBarColor,
-        centerTitle: true,
+        title: const Text("Admin Panel"),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),

@@ -1,3 +1,4 @@
+import 'package:e_comm/controllers/device_token_controller.dart';
 import 'package:e_comm/screens/auth/sign_in_screen.dart';
 import 'package:e_comm/utils/app_constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,6 +15,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  DeviceTokenController deviceTokenController =
+      Get.put(DeviceTokenController());
   SignUpController signUpController = Get.put(SignUpController());
   TextEditingController nameController = TextEditingController();
   TextEditingController cityController = TextEditingController();
@@ -27,7 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     String phone = phoneController.text.trim();
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
-    String userDeviceToken = '';
+    String userDeviceToken = deviceTokenController.deviceToken.toString();
 
     if (name.isEmpty ||
         city.isEmpty ||
