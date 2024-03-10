@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class AppConstant {
   static String appMainName = "Ecomm";
@@ -8,4 +8,5 @@ class AppConstant {
   static const appTextColor = Color(0xff7b68ee);
   static const appStatusBarColor = Color(0xffFBF5F4);
   static const whiteColor = Color(0xffFFFFFF);
+  static const black = Colors.black;
 }

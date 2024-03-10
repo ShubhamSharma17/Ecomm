@@ -1,9 +1,6 @@
-import 'package:e_comm/screens/auth/welcome_screen.dart';
 import 'package:e_comm/utils/app_constant.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:e_comm/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class UserMainScreen extends StatefulWidget {
   const UserMainScreen({super.key});
@@ -13,7 +10,6 @@ class UserMainScreen extends StatefulWidget {
 }
 
 class _UserMainScreenState extends State<UserMainScreen> {
-  GoogleSignIn googleSignIn = GoogleSignIn();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,20 +17,8 @@ class _UserMainScreenState extends State<UserMainScreen> {
         title: Text(AppConstant.appMainName),
         backgroundColor: AppConstant.appStatusBarColor,
         centerTitle: true,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              onTap: () async {
-                await googleSignIn.signOut();
-                FirebaseAuth.instance.signOut();
-                Get.offAll(() => const WelcomeScreen());
-              },
-              child: const Icon(Icons.logout),
-            ),
-          )
-        ],
       ),
+      drawer: const DrawerWidget(),
     );
   }
 }
