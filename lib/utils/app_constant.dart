@@ -9,4 +9,5 @@ class AppConstant {
   static const appStatusBarColor = Color(0xffFBF5F4);
   static const whiteColor = Color(0xffFFFFFF);
   static const black = Colors.black;
+  static const gray = Colors.grey;
 }
