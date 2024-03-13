@@ -1,9 +1,9 @@
 class CategoriesModel {
-  final DateTime updatedOn;
-  final DateTime createdOn;
+  final dynamic updatedOn;
+  final dynamic createdOn;
   final String categoryName;
-  final dynamic categoryImg;
-  final dynamic categoryId;
+  final String categoryImg;
+  final String categoryId;
 
   CategoriesModel({
     required this.updatedOn,

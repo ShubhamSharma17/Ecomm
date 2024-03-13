@@ -15,15 +15,15 @@ class CategoryWidget extends StatelessWidget {
       future: FirebaseFirestore.instance.collection("categories").get(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text("error");
+          return const Text("error");
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
+          return const Center(
             child: CupertinoActivityIndicator(),
           );
         }
         if (snapshot.data!.docs.isEmpty) {
-          return Text("No data");
+          return const Text("No data");
         }
         if (snapshot.data != null) {
           return Container(
@@ -42,7 +42,7 @@ class CategoryWidget extends StatelessWidget {
                 return Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12)),
@@ -58,7 +58,7 @@ class CategoryWidget extends StatelessWidget {
                               fontSize: 18,
                             ),
                           ),
-                          description: Text(""),
+                          description: const Text(""),
                         ),
                       ),
                     ),

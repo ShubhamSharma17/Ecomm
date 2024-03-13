@@ -2,6 +2,7 @@ import 'package:e_comm/utils/app_constant.dart';
 import 'package:e_comm/widgets/banner_widget.dart';
 import 'package:e_comm/widgets/category_widget.dart';
 import 'package:e_comm/widgets/drawer_widget.dart';
+import 'package:e_comm/widgets/flash_sale_widget.dart';
 import 'package:e_comm/widgets/heading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,6 +40,15 @@ class _UserMainScreenState extends State<UserMainScreen> {
               ),
               SizedBox(height: Get.height / 50),
               CategoryWidget(),
+              SizedBox(height: Get.height / 50),
+              HeadingWidget(
+                heading: "Flash Sale",
+                subHeading: "sub products",
+                buttonName: "See More",
+                onTap: () {},
+              ),
+              SizedBox(height: Get.height / 50),
+              FlashSaleWidget(),
             ],
           ),
         ),
