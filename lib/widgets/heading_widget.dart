@@ -47,9 +47,7 @@ class _HeadingWidgetState extends State<HeadingWidget> {
             ],
           ),
           GestureDetector(
-            onTap: () {
-              widget.onTap;
-            },
+            onTap: widget.onTap,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),

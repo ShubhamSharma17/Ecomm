@@ -18,7 +18,7 @@ class _BannerWidgetState extends State<BannerWidget> {
   final BannerController bannerController = Get.put(BannerController());
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: Obx(() {
         return CarouselSlider(
           items: bannerController.bannerList

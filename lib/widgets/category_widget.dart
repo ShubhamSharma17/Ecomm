@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_comm/models/categories_model.dart';
+import 'package:e_comm/screens/user_pannel/single_category_product.dart';
 import 'package:e_comm/utils/app_constant.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_card/image_card.dart';
 
@@ -26,7 +28,7 @@ class CategoryWidget extends StatelessWidget {
           return const Text("No data");
         }
         if (snapshot.data != null) {
-          return Container(
+          return SizedBox(
             height: Get.height / 4,
             child: ListView.builder(
               itemCount: snapshot.data!.docs.length,
@@ -41,24 +43,28 @@ class CategoryWidget extends StatelessWidget {
                     categoryId: snapshot.data!.docs[index]['categoryId']);
                 return Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12)),
-                        child: FillImageCard(
-                          width: Get.width / 3,
-                          heightImage: Get.height / 10,
-                          imageProvider: CachedNetworkImageProvider(
-                              categoriesModel.categoryImg),
-                          title: Text(
-                            categoriesModel.categoryName,
-                            style: const TextStyle(
-                              color: AppConstant.appSecondryColor,
-                              fontSize: 18,
+                    InkWell(
+                      onTap: () => Get.to(() => SingleCategoryProductScreen(
+                          categoryId: categoriesModel.categoryId)),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12)),
+                          child: FillImageCard(
+                            width: Get.width / 3,
+                            heightImage: Get.height / 10,
+                            imageProvider: CachedNetworkImageProvider(
+                                categoriesModel.categoryImg),
+                            title: Text(
+                              categoriesModel.categoryName,
+                              style: const TextStyle(
+                                color: AppConstant.appSecondryColor,
+                                fontSize: 18,
+                              ),
                             ),
+                            description: const Text(""),
                           ),
-                          description: const Text(""),
                         ),
                       ),
                     ),

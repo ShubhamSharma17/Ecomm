@@ -1,3 +1,5 @@
+import 'package:e_comm/screens/user_pannel/all_category_screen.dart';
+import 'package:e_comm/screens/user_pannel/all_flash_sale_product_screen.dart';
 import 'package:e_comm/utils/app_constant.dart';
 import 'package:e_comm/widgets/banner_widget.dart';
 import 'package:e_comm/widgets/category_widget.dart';
@@ -33,22 +35,22 @@ class _UserMainScreenState extends State<UserMainScreen> {
               const BannerWidget(),
               SizedBox(height: Get.height / 50),
               HeadingWidget(
-                heading: "Products",
+                heading: "Categories",
                 subHeading: "sub products",
                 buttonName: "See More",
-                onTap: () {},
+                onTap: () => Get.to(() => const AllCategoryScreen()),
               ),
               SizedBox(height: Get.height / 50),
-              CategoryWidget(),
+              const CategoryWidget(),
               SizedBox(height: Get.height / 50),
               HeadingWidget(
                 heading: "Flash Sale",
                 subHeading: "sub products",
                 buttonName: "See More",
-                onTap: () {},
+                onTap: () => Get.to(() => const AllFlashSaleProductScreen()),
               ),
               SizedBox(height: Get.height / 50),
-              FlashSaleWidget(),
+              const FlashSaleWidget(),
             ],
           ),
         ),
