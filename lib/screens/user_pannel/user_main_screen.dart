@@ -1,6 +1,8 @@
+import 'package:e_comm/screens/user_pannel/All_product_screen.dart';
 import 'package:e_comm/screens/user_pannel/all_category_screen.dart';
 import 'package:e_comm/screens/user_pannel/all_flash_sale_product_screen.dart';
 import 'package:e_comm/utils/app_constant.dart';
+import 'package:e_comm/widgets/all_product_widget.dart';
 import 'package:e_comm/widgets/banner_widget.dart';
 import 'package:e_comm/widgets/category_widget.dart';
 import 'package:e_comm/widgets/drawer_widget.dart';
@@ -51,6 +53,15 @@ class _UserMainScreenState extends State<UserMainScreen> {
               ),
               SizedBox(height: Get.height / 50),
               const FlashSaleWidget(),
+              SizedBox(height: Get.height / 50),
+              HeadingWidget(
+                heading: "All Products",
+                subHeading: "sub products",
+                buttonName: "See More",
+                onTap: () => Get.to(() => const AllProductScreen()),
+              ),
+              SizedBox(height: Get.height / 50),
+              const AllProductWidget()
             ],
           ),
         ),

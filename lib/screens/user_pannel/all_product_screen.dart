@@ -8,15 +8,14 @@ import 'package:image_card/image_card.dart';
 
 import '../../models/product_model.dart';
 
-class AllFlashSaleProductScreen extends StatefulWidget {
-  const AllFlashSaleProductScreen({super.key});
+class AllProductScreen extends StatefulWidget {
+  const AllProductScreen({super.key});
 
   @override
-  State<AllFlashSaleProductScreen> createState() =>
-      _AllFlashSaleProductScreenState();
+  State<AllProductScreen> createState() => _AllProductScreenState();
 }
 
-class _AllFlashSaleProductScreenState extends State<AllFlashSaleProductScreen> {
+class _AllProductScreenState extends State<AllProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

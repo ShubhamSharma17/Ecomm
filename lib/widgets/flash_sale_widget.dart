@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_comm/models/product_model.dart';
+import 'package:e_comm/screens/user_pannel/product_detail_screen.dart';
 import 'package:e_comm/utils/app_constant.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_card/image_card.dart';
 
@@ -51,50 +53,50 @@ class FlashSaleWidget extends StatelessWidget {
                   productDescription: productData['productDescription'],
                   isSale: productData['isSale'],
                 );
-                return Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12)),
-                        child: FillImageCard(
-                          width: Get.width / 3,
-                          heightImage: Get.height / 10,
-                          imageProvider: CachedNetworkImageProvider(
-                            productmodel.productImg[0],
+                return InkWell(
+                  onTap: () => Get.to(
+                      () => ProductDetailScreen(productModel: productmodel)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12)),
+                      child: FillImageCard(
+                        width: Get.width / 3,
+                        heightImage: Get.height / 10,
+                        imageProvider: CachedNetworkImageProvider(
+                          productmodel.productImg[0],
+                        ),
+                        title: Text(
+                          productmodel.categoryName,
+                          style: const TextStyle(
+                            color: AppConstant.appSecondryColor,
+                            fontSize: 18,
                           ),
-                          title: Text(
-                            productmodel.categoryName,
-                            style: const TextStyle(
-                              color: AppConstant.appSecondryColor,
-                              fontSize: 18,
+                        ),
+                        description: Text(
+                          productmodel.productDescription,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        footer: Row(
+                          children: [
+                            Text(
+                              "Rs ${productmodel.salePrice}",
+                              overflow: TextOverflow.ellipsis,
                             ),
-                          ),
-                          description: Text(
-                            productmodel.productDescription,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          footer: Row(
-                            children: [
-                              Text(
-                                "Rs ${productmodel.salePrice}",
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(width: 2),
-                              Text(
-                                productmodel.fullPrice,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                    color: AppConstant.red,
-                                    decoration: TextDecoration.lineThrough),
-                              ),
-                            ],
-                          ),
+                            const SizedBox(width: 2),
+                            Text(
+                              productmodel.fullPrice,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                  color: AppConstant.green,
+                                  decoration: TextDecoration.lineThrough),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
+                  ),
                 );
               },
             ),
