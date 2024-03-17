@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:image_card/image_card.dart';
 
 import '../../models/product_model.dart';
+import 'product_detail_screen.dart';
 
 class AllFlashSaleProductScreen extends StatefulWidget {
   const AllFlashSaleProductScreen({super.key});
@@ -70,26 +71,41 @@ class _AllFlashSaleProductScreenState extends State<AllFlashSaleProductScreen> {
                 );
                 return Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 12),
-                      child: Container(
-                        width: Get.width / 2.5,
-                        height: Get.height / 2,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12)),
-                        child: FillImageCard(
-                          borderRadius: 18,
+                    InkWell(
+                      onTap: () => Get.to(() =>
+                          ProductDetailScreen(productModel: productmodel)),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 12),
+                        child: Container(
                           width: Get.width / 2.5,
-                          heightImage: Get.height / 5,
-                          imageProvider: CachedNetworkImageProvider(
-                            productmodel.productImg[0],
-                          ),
-                          title: Text(
-                            productmodel.categoryName,
-                            style: const TextStyle(
-                              color: AppConstant.appSecondryColor,
-                              fontSize: 18,
+                          height: Get.height / 2,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12)),
+                          child: FillImageCard(
+                            borderRadius: 18,
+                            width: Get.width / 2.5,
+                            heightImage: Get.height / 5,
+                            imageProvider: CachedNetworkImageProvider(
+                              productmodel.productImg[0],
+                            ),
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  productmodel.categoryName,
+                                  style: const TextStyle(
+                                    color: AppConstant.appSecondryColor,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                Text(
+                                  "Rs ${productmodel.salePrice}",
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),

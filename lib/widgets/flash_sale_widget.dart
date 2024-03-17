@@ -83,13 +83,16 @@ class FlashSaleWidget extends StatelessWidget {
                             Text(
                               "Rs ${productmodel.salePrice}",
                               overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                color: AppConstant.green,
+                              ),
                             ),
                             const SizedBox(width: 2),
                             Text(
                               productmodel.fullPrice,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
-                                  color: AppConstant.green,
+                                  color: AppConstant.red,
                                   decoration: TextDecoration.lineThrough),
                             ),
                           ],

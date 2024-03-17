@@ -87,10 +87,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               "Rs ",
                               style: TextStyle(color: AppConstant.black),
                             ),
-                            Text(
-                              widget.productModel.fullPrice,
-                              style: const TextStyle(color: AppConstant.green),
-                            ),
+                            widget.productModel.isSale == true &&
+                                    widget.productModel.salePrice != ""
+                                ? Text(
+                                    widget.productModel.salePrice,
+                                    style: const TextStyle(
+                                        color: AppConstant.green),
+                                  )
+                                : Text(
+                                    widget.productModel.fullPrice,
+                                    style: const TextStyle(
+                                        color: AppConstant.green),
+                                  ),
                           ],
                         ),
                       ],

@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_card/image_card.dart';
 
+import 'product_detail_screen.dart';
+
 class SingleCategoryProductScreen extends StatefulWidget {
   final String categoryId;
   const SingleCategoryProductScreen({
@@ -70,36 +72,36 @@ class _SingleCategoryProductScreenState
                     salePrice: productData['salePrice'],
                     productDescription: productData['productDescription'],
                     isSale: productData['isSale']);
-                return Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12)),
-                        child: FillImageCard(
-                          borderRadius: 18,
-                          width: Get.width / 2.5,
-                          heightImage: Get.height / 5,
-                          imageProvider: CachedNetworkImageProvider(
-                            productModel.productImg[0],
+                return InkWell(
+                  onTap: () => Get.to(
+                      () => ProductDetailScreen(productModel: productModel)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12)),
+                      child: FillImageCard(
+                        borderRadius: 18,
+                        width: Get.width / 2.5,
+                        heightImage: Get.height / 5,
+                        imageProvider: CachedNetworkImageProvider(
+                          productModel.productImg[0],
+                        ),
+                        title: Text(
+                          productModel.productName,
+                          style: const TextStyle(
+                            color: AppConstant.appSecondryColor,
+                            fontSize: 18,
                           ),
-                          title: Text(
-                            productModel.productName,
-                            style: const TextStyle(
-                              color: AppConstant.appSecondryColor,
-                              fontSize: 18,
-                            ),
-                          ),
-                          description: Text(
-                            productModel.productDescription,
-                            style: const TextStyle(
-                                overflow: TextOverflow.ellipsis),
-                          ),
+                        ),
+                        description: Text(
+                          productModel.productDescription,
+                          style:
+                              const TextStyle(overflow: TextOverflow.ellipsis),
                         ),
                       ),
                     ),
-                  ],
+                  ),
                 );
               },
             );

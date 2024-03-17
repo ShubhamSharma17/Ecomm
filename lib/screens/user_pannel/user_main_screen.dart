@@ -1,6 +1,7 @@
 import 'package:e_comm/screens/user_pannel/All_product_screen.dart';
 import 'package:e_comm/screens/user_pannel/all_category_screen.dart';
 import 'package:e_comm/screens/user_pannel/all_flash_sale_product_screen.dart';
+import 'package:e_comm/screens/user_pannel/cart_screen.dart';
 import 'package:e_comm/utils/app_constant.dart';
 import 'package:e_comm/widgets/all_product_widget.dart';
 import 'package:e_comm/widgets/banner_widget.dart';
@@ -26,6 +27,15 @@ class _UserMainScreenState extends State<UserMainScreen> {
         title: Text(AppConstant.appMainName),
         backgroundColor: AppConstant.appStatusBarColor,
         centerTitle: true,
+        actions: [
+          InkWell(
+            onTap: () => Get.to(() => const CartScreen()),
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(Icons.shopping_cart),
+            ),
+          )
+        ],
       ),
       drawer: const DrawerWidget(),
       body: SingleChildScrollView(
